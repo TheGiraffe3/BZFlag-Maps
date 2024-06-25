@@ -1,0 +1,891 @@
+world
+	size 2000
+end
+
+options
+	-c
+	-j
+	+r
+	-ms 5
+	-mp 0,6,5,5,5,10
+	-fb
+	-sb
+	-a 100 76
+	-set _tankSpeed 75
+	-set _burrowSpeedAd 1.25
+	-set _burrowAngularAd 1
+	-set _forbidIdentify 1
+	-set _forbidMarkers 1
+	-set _maxBumpHeight 15
+	-set _maxFlagGrabs 2
+	-set _mGunAdLife 6
+	-set _noClimb 0
+	-set _shockOutRadius 100
+	-set _shockInRadius 1
+	-set _shotRadius 1.25
+	-set _srRadiusMult 10
+	-set _tankRadius 5
+	-set _thiefTinyFactor 0.1
+	-set _thiefVelAd 5
+	-set _trackFade 20
+	-set _wideAngleAng 13
+	-set _wingsJumpCount 30
+	-set _wingsSlideTime 1.5
+	-set _friction 5
+	-set _boxHeight 10
+	-set _laserAdVel 10000
+	-set _obeseFactor 30
+	-set _tankLength 4
+	-set _wallHeight 500
+	-set _velocityAd 10
+	-set _disableHeightChecks 1
+	#-set _rejumpTime 0
+	-set _mGunAdLife 3
+	-set _mGunAdRate 30
+	-set _laserAdLife 0.5
+	-set _hideFlagsOnRadar 1
+	-set _flagRadius 7.5
+	-set _flagAltitude 3
+	-set _explodeTime 2
+	-set _radarLimit 2100
+	-set _rFireAdVel 3
+	-set _rFireAdRate 0.5
+	-set _shotSpeed 200
+	-set _shotRange 700
+	-set _shotTailLength 10
+	-set _spawnSafeSWMod 30
+	-set _squishFactor 5
+	-set _squishTime 10
+	-set _thiefVelAd 3
+	-set _wingsJumpVelocity 19
+	-set _thiefAdLife 1
+	-set _agilityTimeWindow 10
+	-set _agilityAdVel 3
+	-sl G 10
+	-sl L 25
+	-sl GM 50
+	-sl LB 10
+	-sl AA 75
+	-noTeamKills
+	-loadplugin shotLimitZone
+	#-loadplugin UselessMine
+	-loadplugin neutralZones
+	-loadplugin DemilitarizedZones
+	-loadplugin ScoreRestorer
+	-loadplugin CaptureBonus
+	-loadplugin timedFlagOnSpawn,US=30;LB=10;AA=20;L=15;G=2
+	-loadplugin CascadeFlag
+	-loadplugin WhackyWeapons
+	#-loadplugin Retroreflector
+	#-loadplugin ReverseGeno
+	-loadplugin SpreeTracker
+	-loadplugin mappedDeathZones
+	-loadplugin SpawnkillRevenge
+	-loadplugin autoFlagReset, 20
+	-set _captureBonus 10
+	-set _penalizeSelfCapture false
+	-set _wwLBstartheight 300
+	-set _wwLBfactor 10
+	-set _wwLBradius 4
+	-set _wwAAdeflect 0.1
+	-set _wwAAvelfactor 2.5
+	-set spawnkillTime 3
+	-set _scoreSaveTime 300
+	-srvmsg "This is Alien Attack."
+	-srvmsg "Be careless and you will die."
+	-srvmsg "This should work best when Red"
+	-srvmsg "has one or two more players than"
+	-srvmsg "other teams."
+	-srvmsg "Please be nice when you talk."
+	-admsg "Liking Alien Attack?"
+	-admsg "Beware your death, and have fun!"
+	-sw 1
+	-st 10
+end
+
+
+material
+	name outerwall
+	texmat -1
+	dyncol -1
+	texture wall
+	noradar
+end
+
+material
+  name GBW
+  texture green_tank
+end
+
+material
+  name ROGUE
+  texture rogue_tank
+end
+
+material
+  name BBW
+  texture blue_tank
+end
+
+material
+  name PBW
+  texture purple_tank
+end
+
+material
+  name RBW
+  texture red_tank
+end
+
+material
+  name invisible
+  color 0 0 0 0
+  noradar
+end
+
+material
+  name bouncywarner
+  texture caution
+  noradar
+end
+
+material
+  name hunter
+  texture hunter_tank
+end
+
+material
+  name rabbit
+  texture rabbit_tank
+end
+
+physics
+	name pkiller
+	death Pyramids are dangerous! Stay away or test the other ones!
+end
+
+physics 
+	name bouncy
+	linear 5 0 110
+end
+
+physics
+	name bkiller
+	death Sometimes boxes are fatal. This was one of them.
+end
+
+physics
+	name rabidrabbit
+	death This rabbit is Rabid!
+end
+
+box
+	name Outer Wall Two
+	position 1450 0 0
+	size 4000 5 500
+	rotation 30
+	matref outerwall
+end
+
+box
+	name Outer Wall One
+	position 1450 0 0
+	size 4000 5 500
+	rotation 330
+	matref outerwall
+end
+
+base
+	name Red Base
+	position -525 0 0
+	size 800 800 4
+	rotation 45
+	color 1
+end
+
+weapon
+	name RedCPSW
+	position -525 0 0
+	color 1
+	initdelay 60
+	delay 120 78 120 130 60
+	type SW
+end
+
+zone
+	name OnRedTeam
+	position -525 0 4
+	size 800 800 4
+	rotation 45
+	zoneflag BU 4
+	zoneflag G 2
+	zoneflag ID 5
+	zoneflag JM 2
+	zoneflag L 5
+	zoneflag M 5
+	zoneflag MG 10
+	zoneflag O 4
+	zoneflag ST 30
+	zoneflag SW 10
+	zoneflag V 15
+	zoneflag WA 8
+	zoneflag WG 15
+	zoneflag ID 10
+	zoneflag CA 30
+	#zoneflag BD 30
+	zoneflag RG 4
+	zoneflag RR 15
+	zoneflag US 30
+	team 1
+	safety 1
+end
+
+zone
+	name GreenTinyZone
+	position 1275 0 204
+	size 50 50 4
+	zoneflag T 100
+	team 2
+	safety 2
+end
+
+shotLimitZone
+	name GreenTinyZone
+	position 1275 0 204
+	size 50 50 4
+	shotLimit 1
+	flag T
+end
+
+zone
+	name OtherGreenZone
+	position 950 0 204
+	size 100 50 4
+	zoneflag ST 20
+	zoneflag L 10
+	zoneflag GM 10
+	zoneflag ID 5
+	zoneflag B 10
+	zoneflag CL 30
+	zoneflag AA 15
+	zoneflag LB 1
+	zoneflag CA 10
+	zoneflag US 30
+	zoneflag RR 10
+	team 2
+	safety 2
+end
+
+box
+	name RightFromMiddleWall
+	position 1186 -50 200
+	size 239 5 50
+	matref GBW
+end
+
+#box
+#	name BackOfGreenBase
+#	position 1050 0 200
+#	size 5 50 50
+#	drivethrough
+#	matref GPBW
+#end
+
+box
+	name RoofGreenBase
+	position 1186 0 250
+	size 239 55 5
+	matref GBW
+end
+
+base
+	name GreenBase
+	position 975 0 205
+	size 16 16 2
+	color 2
+end
+
+weapon
+	name GreenSW
+	position 975 0 205
+	color 2
+	initdelay 60
+	delay 120 80 140 50 120
+	type SW
+end
+
+box
+	name GreenFlagHolder
+	position 947 0 175
+	size 0.5 10 5
+	matref GBW
+end
+
+box
+	name ToMiddleGreenBase
+	position 196 0 200
+	size 750 50 5
+	shootthrough
+	matref GBW
+end
+
+box
+	name UnderGreenBase
+	position 1187 0 200
+	size 241 50 5
+	shootthrough
+	matref GBW
+end
+
+box
+	name GreenLeftFromMiddleWall
+	position 1186 50 200
+	size 239 5 50
+	matref GBW
+end
+
+base
+	name Blue Base
+	position -1775 -800 205
+	size 16 16 4
+	color 3
+end
+
+zone
+	name BlueZone
+	position -1775 -800 205
+	size 100 50 4
+	zoneflag ST 20
+	zoneflag L 10
+	zoneflag GM 10
+	zoneflag ID 5
+	zoneflag B 10
+	zoneflag CL 30
+	zoneflag AA 10
+	zoneflag LB 3
+	zoneflag CA 5
+	#zoneflag BD 10
+	zoneflag US 30
+	zoneflag RR 30
+	team 3
+	safety 3
+end
+
+weapon
+	name BlueSW
+	position -1775 -800 205
+	color 3
+	initdelay 100
+	delay 100 120 150 40 120 120
+	type SW
+end
+
+box
+	name BlueFlagHolder
+	position -1744 -795 175
+	size 0.5 10 5
+	matref BBW
+end
+
+box
+	name BottomBlueBase
+	position -1795 -800 205
+	size 50 50 1
+	matref BBW
+end
+
+box
+	name RightFromMiddleBlueBase
+	position -1795 -850 205
+	size 50 5 50
+	matref BBW
+end
+
+box
+	name LeftFromMiddleBlueBase
+	position -1795 -750 205
+	size 50 5 50
+	matref BBW
+end
+
+box
+	name TopBlueBase
+	position -1795 -800 255
+	size 50 50 1
+	matref BBW
+end
+
+#box
+#	name BackBlueBase
+#	position -1840 -800 205
+#	size 5 50 50
+#	drivethrough
+#	matref BPBW
+#end
+
+base
+	name Purple Base
+	position -1775 800 205
+	size 16 16 4
+	color 4
+end
+
+zone
+	name PurpleZone
+	position -1775 800 205
+	size 100 50 4
+	zoneflag ST 20
+	zoneflag L 10
+	zoneflag GM 10
+	zoneflag ID 5
+	zoneflag B 10
+	zoneflag CL 30
+	zoneflag LB 4
+	zoneflag US 20
+	zoneflag CA 10
+	#zoneflag BD 10
+	zoneflag RR 15
+	team 4
+	safety 4
+end
+
+weapon
+	name PurpleSW
+	position -1775 800 205
+	color 4
+	initdelay 150
+	delay 90 100 120 100 140 100 180
+	type SW
+end
+
+box
+	name PurpleFlagHolder
+	position -1744 795 175
+	size 0.5 10 5
+	matref PBW
+end
+
+box
+	name BottomPurpleBase
+	position -1795 800 205
+	size 50 50 1
+	matref PBW
+end
+
+box
+	name RightFromMiddlePurpleBase
+	position -1795 850 205
+	size 50 5 50
+	matref PBW
+end
+
+box
+	name LeftFromMiddlePurpleBase
+	position -1795 750 205
+	size 50 5 50
+	matref PBW
+end
+
+box
+	name TopPurpleBase
+	position -1795 800 255
+	size 50 50 1
+	matref PBW
+end
+
+#box
+#	name BackPurpleBase
+#	position -1840 800 205
+#	size 5 50 50
+#	drivethrough
+#	matref PPBW
+#end
+
+box
+	name BlueToMiddle
+	position -1140 -800 205
+	size 604 50 1
+	shootthrough
+	matref BBW
+end
+
+box
+	name MiddleBluePurple
+	position -525 0 204
+	size 50 850 7
+	shootthrough
+	matref ROGUE
+end
+
+box
+	name PurpleToMiddle
+	position -1140 800 205
+	size 604 50 1
+	shootthrough
+	matref PBW
+end
+
+weapon
+	name minusYredbasegeno
+	position -525 -1125 0
+	color 0
+	tilt 90
+	initdelay 60
+	delay 60 120 60 60 120 180 60 60
+	type G
+end
+
+weapon
+	name Yredbasegeno
+	position -525 1125 0
+	color 0
+	tilt 90
+	initdelay 60
+	delay 60 120 60 60 120 180 60 60
+	type G
+end
+
+weapon
+	name Xredbasegeno
+	position 600 0 0
+	color 0
+	tilt 90
+	initdelay 30
+	delay 30 60 30 30 60 90 30 30
+	type G
+end
+
+weapon
+	name minusXredbasegeno
+	position -1650 0 0
+	color 0
+	tilt 90
+	initdelay 30
+	delay 30 60 30 30 60 90 30 30
+	type G
+end
+
+pyramid
+	name CentralRedPyramid
+	position -525 0 0
+	size 100 100 200
+	drivethrough
+end
+
+pyramid
+	name NPy
+	position 0 0 0
+	size 7 7 12
+	shootthrough
+	matref RBW
+	phydrv pkiller
+end
+
+pyramid
+	name SPy
+	position -1050 0 0
+	size 7 7 12
+	shootthrough
+	matref RBW
+	phydrv pkiller
+end
+
+pyramid
+	name WPy
+	position -525 525 0
+	size 7 7 12
+	shootthrough
+	matref RBW
+	phydrv pkiller
+end
+
+pyramid
+	name EPy
+	position -525 -525 0
+	size 7 7 12
+	shootthrough
+	matref RBW
+	phydrv pkiller
+end
+
+
+zone
+	name minusYoutsidewallzone
+	position 1000 -1500 0
+	size 1250 500 4
+	zoneflag SB 150
+	zoneflag G 200
+	zoneflag ST 400
+	zoneflag WG 150
+	zoneflag MG 100
+	zoneflag SW 100
+	zoneflag AA 150
+	zoneflag LB 150
+	zoneflag L 200
+	zoneflag OO 200
+	zoneflag ID 200
+	zoneflag CA 200
+	zoneflag RR 300
+	#zoneflag BD 200
+	zoneflag US 50
+end
+
+
+zone
+	name Youtsidewallzone
+	position 1000 1500 0
+	size 1250 500 4
+	zoneflag SB 150
+	zoneflag G 200
+	zoneflag ST 400
+	zoneflag WG 150
+	zoneflag MG 100
+	zoneflag SW 100
+	zoneflag AA 150
+	zoneflag LB 150
+	zoneflag L 200
+	zoneflag OO 200
+	zoneflag ID 200
+	zoneflag CA 200
+	zoneflag RR 300
+	#zoneflag BD 200
+	zoneflag US 50
+end
+
+shotLimitZone
+	name Youtsidewallzone
+	position 1000 1500 0
+	size 1250 500 4
+	shotLimit 15
+	flag SB
+	flag G
+	flag ST
+	flag WG
+	flag MG
+	flag SW
+	flag AA
+	flag LB
+	flag L
+	flag OO
+	flag ID
+	flag CA
+	flag RR
+	#flag BD
+	flag US
+end
+
+shotLimitZone
+	name minusYoutsidewallzone
+	position 1000 -1500 0
+	size 1250 500 4
+	shotLimit 15
+	flag SB
+	flag G
+	flag ST
+	flag WG
+	flag MG
+	flag SW
+	flag AA
+	flag LB
+	flag L
+	flag OO
+	flag ID
+	flag CA
+	flag RR
+	#flag BD
+	flag US
+end
+
+box
+	name minusYbouncer
+	position 0 -1000 0
+	size 50 50 1
+	rotation 30
+	matref bouncywarner
+	phydrv bouncy
+end
+
+box
+	name Ybouncer
+	position 0 1000 0
+	size 50 50 1
+	rotation 330
+	matref bouncywarner
+	phydrv bouncy
+end
+
+box
+	name aYkiller
+	position -525 844 210.05
+	size 50 6 1
+	shootthrough
+	matref ROGUE
+	phydrv bkiller
+end
+
+box
+	name aminusYkiller
+	position -525 -844 210.05
+	size 50 6 1
+	shootthrough
+	matref ROGUE
+	phydrv bkiller
+end
+
+pyramid
+	name GRRPy
+	position 0 0 205
+	size 25 25 50
+	matref rabbit
+	phydrv rabidrabbit
+end
+
+pyramid
+	name hunterpy
+	position -525 0 210
+	size 50 50 100
+	drivethrough
+end
+
+teleporter inhunterpy
+	position -525 0 210
+	size 0.56 6.72 21.28
+	border 1.12
+end
+
+teleporter onredbase
+	position -400 0 0
+	size 0.56 20 50
+	border 1.12
+end
+
+link
+	from onredbase:f
+	to inhunterpy:f
+end
+
+link
+	from onredbase:b
+	to inhunterpy:f
+end
+
+link
+	from inhunterpy:f
+	to onredbase:f
+end
+
+link
+	from inhunterpy:b
+	to inhunterpy:b
+end
+
+pyramid
+	name BlueRPy
+	position -1050 800 205
+	size 30 30 50
+	matref rabbit
+	phydrv rabidrabbit
+end
+
+pyramid
+	name PurpleRPy
+	position -1050 -800 205
+	size 30 30 50
+	matref rabbit
+	phydrv rabidrabbit
+end
+
+dmz
+	position -525
+	size 50 50 30
+	team 2
+	team 3
+	team 4
+end
+
+neutralzone
+	position 0 0 300
+	size 2000 2000 10
+	rotation 0
+	flag *
+end
+
+shotLimitZone
+	position 0 0 200
+	size 2000 2000 20
+	rotation 0
+	flag *
+end
+
+box
+	name FireSWSBhere
+	position 1750 0 0
+	size 5 5 5
+end
+
+weapon
+	name SW
+	position 1750 0 0
+	rotation 0
+	color 0
+	tilt 0
+	initdelay 10
+	delay 15 5 10 10 5 5 10 15 5 20 10
+	type SW
+end
+
+#weapon 
+#	name SB 1
+#	position 
+
+box
+	name FireGhere
+	position 1750 0 205
+	size 5 5 5
+end
+
+weapon
+	name SB
+	position 1750 0 205
+	rotation 180
+	color 0
+	tilt 0
+	initdelay 30 
+	delay 30 60 60 50
+	type SB
+end
+
+deathzone
+	position 1000 -1500 0
+	size 1250 500 20
+	rotation 0
+	
+	name MYOWZ
+	spawnzone YOWZ
+end
+
+deathzone
+	position 1000 1500 0
+	size 1250 500 20
+	rotation 0
+	
+	name YOWZ
+	spawnzone MYOWZ
+end
+
+spawnzone
+	position 1000 1500 0
+	size 1250 500 20
+	rotation 0
+	
+	name YOWZ
+end
+
+spawnzone
+	position 1000 -1500 0
+	size 1250 500 20
+	rotation 0
+	
+	name MYOWZ
+end
+

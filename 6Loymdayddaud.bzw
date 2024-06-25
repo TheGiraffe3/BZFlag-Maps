@@ -1,0 +1,321 @@
+# Created with iBZEdit on Wed Nov 01 12:36:47 2023
+#ibzcam -430.687927 332.062317 53.962017 -4570.846191 -12.599768 60.000000
+#ibzwindow 273.000000 185.000000 922.000000 692.000000
+
+world
+  size 500.000000
+end
+
+options
+  -c
+  +r
+  -j
+  -set _tankSpeed 100.000000
+  -ms 3
+  -mp 2,2,2,0,0,2
+end
+
+box
+  name BZBox_1
+  position 20.000000 0.000000 0.000000
+  size 2.000000 20.000000 30.000000
+  rotation 0.000000
+  drivethrough
+end
+
+box
+  name BZBox_1_Copy
+  position -20.000000 0.000000 0.000000
+  size 2.000000 20.000000 30.000000
+  rotation 0.000000
+  shootthrough
+end
+
+box
+  name BZBox_1_Copy
+  position 18.000000 20.000000 0.000000
+  size 40.000000 2.000000 30.000000
+  rotation 0.000000
+  passable
+end
+
+box
+  name BZBox_1_Copy_Copy
+  position 18.000000 -20.000000 0.000000
+  size 40.000000 2.000000 30.000000
+  rotation 0.000000
+  passable
+end
+
+pyramid
+  name BZBox_5
+  position 490.000000 490.000000 0.000000
+  size 10.000000 10.000000 20.000000
+  rotation 0.000000
+  flipz
+end
+
+base
+  name BZBox_6
+  color 1
+  position 490.000000 490.000000 20.000000
+  size 10.000000 10.000000 1.000000
+  rotation 0.000000
+end
+
+pyramid
+  name BZBox_5_Copy
+  position -490.000000 490.000000 0.000000
+  size 10.000000 10.000000 20.000000
+  rotation 0.000000
+  flipz
+end
+
+base
+  name BZBox_6_Copy
+  color 4
+  position -490.000000 490.000000 20.000000
+  size 10.000000 10.000000 1.000000
+  rotation 0.000000
+end
+
+base
+  name BZBox_6_Copy_Copy
+  color 2
+  position -490.000000 -490.000000 20.000000
+  size 10.000000 10.000000 1.000000
+  rotation 0.000000
+end
+
+pyramid
+  name BZBox_5_Copy_Copy
+  position -490.000000 -490.000000 0.000000
+  size 10.000000 10.000000 20.000000
+  rotation 0.000000
+  flipz
+end
+
+pyramid
+  name BZBox_5_Copy_Copy_Copy
+  position 490.000000 -490.000000 0.000000
+  size 10.000000 10.000000 20.000000
+  rotation 0.000000
+  flipz
+end
+
+base
+  name BZBox_6_Copy_Copy_Copy
+  color 3
+  position 490.000000 -490.000000 20.000000
+  size 10.000000 10.000000 1.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_5
+  position 0.000000 20.000000 0.000000
+  size 20.000000 2.000000 10.000000
+  rotation 0.000000
+  shootthrough
+end
+
+box
+  name BZBox_5_Copy
+  position 0.000000 -20.000000 0.000000
+  size 20.000000 2.000000 10.000000
+  rotation 0.000000
+  shootthrough
+end
+
+box
+  name BZBox_7
+  position -40.000000 0.000000 0.000000
+  size 20.000000 22.000000 10.000000
+  rotation 0.000000
+  passable
+end
+
+box
+  name BZBox_8
+  position 18.000000 0.000000 30.000000
+  size 40.000000 22.000000 1.000000
+  rotation 0.000000
+end
+
+teleporter BZBox_9
+  position 60.000000 0.000000 0.000000
+  size 0.560000 5.000000 15.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_9:f
+  to BZBox_9:b
+end
+
+link
+  from BZBox_9:b
+  to BZBox_9:f
+end
+
+teleporter BZBox_9
+  position 30.000000 0.000000 31.000000
+  size 0.560000 5.000000 10.000000
+  rotation 45.000000
+  border 1.120000
+end
+
+link
+  from BZBox_9:f
+  to BZBox_9:f
+end
+
+link
+  from BZBox_9:b
+  to BZBox_9:f
+end
+
+box
+  name BZBox_9
+  position 59.000000 0.000000 15.000000
+  size 1.000000 22.000000 16.000000
+  rotation 0.000000
+end
+
+teleporter BZBox_10
+  position 30.000000 15.000000 31.000000
+  size 0.560000 5.000000 10.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10:f
+  to BZBox_10:f
+end
+
+link
+  from BZBox_10:b
+  to BZBox_10:b
+end
+
+teleporter BZBox_10_Copy
+  position 30.000000 -15.000000 31.000000
+  size 0.560000 5.000000 10.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10_Copy:f
+  to BZBox_11:f
+end
+
+link
+  from BZBox_10_Copy:b
+  to BZBox_11:b
+end
+
+teleporter BZBox_10_Copy_Copy
+  position 50.000000 0.000000 31.000000
+  size 0.560000 5.000000 10.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10_Copy_Copy:f
+  to BZBox_10_Copy:f
+end
+
+link
+  from BZBox_10_Copy_Copy:b
+  to BZBox_10_Copy:b
+end
+
+teleporter BZBox_10_Copy_Copy_Copy
+  position 0.000000 0.000000 31.000000
+  size 0.560000 5.000000 10.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10_Copy_Copy_Copy:f
+  to BZBox_11_Copy:f
+end
+
+link
+  from BZBox_10_Copy_Copy_Copy:b
+  to BZBox_11_Copy:b
+end
+
+teleporter BZBox_10
+  position 490.000000 480.000000 21.000000
+  size 0.560000 8.000000 10.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10:f
+  to BZBox_10_Copy_Copy:f
+end
+
+link
+  from BZBox_10:b
+  to BZBox_10_Copy_Copy:b
+end
+
+teleporter BZBox_10_Copy
+  position 490.000000 -480.000000 21.000000
+  size 0.560000 8.000000 10.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_10_Copy:f
+  to BZBox_10_Copy:f
+end
+
+link
+  from BZBox_10_Copy:b
+  to BZBox_10_Copy:b
+end
+
+teleporter BZBox_11
+  position -490.000000 -480.000000 21.000000
+  size 0.560000 8.000000 10.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_11:f
+  to BZBox_10_Copy_Copy_Copy:f
+end
+
+link
+  from BZBox_11:b
+  to BZBox_10_Copy_Copy_Copy:b
+end
+
+teleporter BZBox_11_Copy
+  position -490.000000 480.000000 21.000000
+  size 0.560000 8.000000 10.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_11_Copy:f
+  to BZBox_10_Copy_Copy_Copy:f
+end
+
+link
+  from BZBox_11_Copy:b
+  to BZBox_10_Copy_Copy_Copy:b
+end
+

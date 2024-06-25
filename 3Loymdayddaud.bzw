@@ -1,0 +1,289 @@
+# Created with iBZEdit on Thu Nov 09 11:31:09 2023
+#ibzcam 113.042625 180.266205 28.914021 -327.609222 0.000000 60.000000
+#ibzwindow 256.000000 184.000000 923.000000 693.000000
+
+world
+  size 400.000000
+end
+
+options
+  -j
+  -set _tankSpeed 25.000000
+  -ms 5
+  -mp 0,2,2,2,2,2
+end
+
+define BZGroupDefinition
+  teleporter BZBox_6
+    position 350.000000 395.000000 0.000000
+    size 0.560000 50.000000 50.000000
+    rotation 90.000000
+    border 1.120000
+  end
+
+enddef
+
+define BZGroupDefinition_2
+  box
+    name BZBox_1
+    position 349.000000 398.000000 0.000000
+    size 50.000000 2.000000 200.000000
+    rotation 0.000000
+  end
+
+  box
+    name BZBox_2
+    position 397.000000 348.000000 0.000000
+    size 2.000000 50.000000 200.000000
+    rotation 0.000000
+  end
+
+  box
+    name BZBox_3
+    position 350.000000 300.000000 0.000000
+    size 50.000000 2.000000 200.000000
+    rotation 0.000000
+  end
+
+  box
+    name BZBox_4
+    position 300.000000 375.000000 0.000000
+    size 2.000000 25.000000 200.000000
+    rotation 0.000000
+  end
+
+  box
+    name BZBox_5
+    position 300.000000 350.000000 25.000000
+    size 50.000000 2.000000 175.000000
+    rotation 90.000000
+  end
+
+enddef
+
+box
+  name BZBox_7
+  position 350.000000 350.000000 200.000000
+  size 50.000000 50.000000 2.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_14
+  position 0.000000 0.000000 0.000000
+  size 20.000000 400.000000 20.000000
+  rotation 0.000000
+  drivethrough
+end
+
+box
+  name BZBox_3
+  position 348.000000 397.000000 0.000000
+  size 50.000000 2.000000 200.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_4
+  position 390.000000 350.000000 0.000000
+  size 2.000000 50.000000 200.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_5
+  position 348.000000 300.000000 0.000000
+  size 50.000000 2.000000 200.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_6
+  position 290.000000 348.000000 25.000000
+  size 2.000000 50.000000 175.000000
+  rotation 0.000000
+end
+
+box
+  name BZBox_7
+  position 290.000000 370.000000 0.000000
+  size 5.000000 25.000000 100.000000
+  rotation 0.000000
+end
+
+pyramid
+  name BZBox_10
+  position -200.000000 -200.000000 0.000000
+  size 150.000000 200.000000 200.000000
+  rotation 0.000000
+end
+
+pyramid
+  name BZBox_11
+  position -350.000000 350.000000 0.000000
+  size 20.000000 20.000000 50.000000
+  rotation 0.000000
+end
+
+pyramid
+  name BZBox_8
+  position -315.000000 100.000000 0.000000
+  size 30.000000 10.000000 30.000000
+  rotation 0.000000
+  drivethrough
+  flipz
+end
+
+teleporter BZBox_8
+  position 395.000000 395.000000 200.000000
+  size 0.560000 5.000000 15.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_8:f
+  to *
+end
+
+link
+  from BZBox_8:b
+  to *
+end
+
+teleporter BZBox_9
+  position 350.000000 0.000000 0.000000
+  size 0.560000 20.000000 50.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_9:f
+  to BZBox_9:f
+end
+
+link
+  from BZBox_9:b
+  to BZBox_9:f
+end
+
+teleporter BZBox_12
+  position -350.000000 300.000000 0.000000
+  size 0.560000 10.000000 15.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_12:f
+  to BZBox_9:f
+end
+
+link
+  from BZBox_12:b
+  to BZBox_13:b
+end
+
+teleporter BZBox_13
+  position -380.000000 -300.000000 0.000000
+  size 0.560000 5.000000 10.000000
+  rotation 0.000000
+  border 10.000000
+end
+
+link
+  from BZBox_13:f
+  to BZBox_12:f
+end
+
+link
+  from BZBox_13:b
+  to BZBox_12:b
+end
+
+teleporter BZBox_15
+  position 315.000000 315.000000 200.000000
+  size 0.560000 5.000000 20.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_15:f
+  to BZBox_9:f
+end
+
+link
+  from BZBox_15:b
+  to BZBox_13:b
+end
+
+teleporter BZBox_16
+  position 315.000000 330.000000 200.000000
+  size 0.560000 5.000000 20.000000
+  rotation 0.000000
+  border 1.120000
+end
+
+link
+  from BZBox_16:f
+  to BZBox_8:f
+end
+
+link
+  from BZBox_16:b
+  to BZBox_17:b
+end
+
+teleporter BZBox_17
+  position 340.000000 385.000000 0.000000
+  size 0.560000 50.000000 50.000000
+  rotation 90.000000
+  border 1.120000
+end
+
+link
+  from BZBox_17:f
+  to BZBox_8:f
+end
+
+link
+  from BZBox_17:b
+  to BZBox_8:f
+end
+
+teleporter BZBox_8
+  position 315.000000 345.000000 200.000000
+  size 0.560000 5.000000 20.000000
+  rotation 0.000000
+  border 1.000000
+end
+
+link
+  from BZBox_8:f
+  to *
+end
+
+link
+  from BZBox_8:b
+  to *
+end
+
+group BZGroupDefinition
+  name BZGroup_1
+  position 0.000000 0.000000 0.000000
+  size 1.000000 1.000000 1.000000
+  rotation 0.000000
+end
+
+link
+  from BZGroup_1:BZBox_6:f
+  to *
+end
+
+link
+  from BZGroup_1:BZBox_6:b
+  to *
+end
+

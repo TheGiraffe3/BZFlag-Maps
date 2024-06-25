@@ -1,0 +1,692 @@
+world
+	size 800
+	flagHeight 3
+end
+
+options
+	-c
+	-j
+	+r
+	-fb
+	-sb
+	-noradar
+	-mp 0,20,20,0,0,20
+	-ms 4
+	-sl L 15
+	-sl SW 1
+	-set _shockOutRadius 1500
+	-set _tankSpeed 75
+	-a 50 38
+	-set _wingsJumpCount 30
+	-set _jumpVelocity 12
+	-set _gmAdLife 5
+	-set _gmTurnAngle 0.4
+	-set _noShadows 1
+	-set _maxFlagGrabs 1
+	-set _lockOnAngle 5
+	-set _explodeTime 2
+	-set _flagAltitude 1
+	-loadplugin CaptureBonus
+	-set _captureBonus 5
+	-loadplugin ScoreRestorer
+	-set _scoreSaveTime 300
+	-loadplugin autoFlagReset, 60
+end
+
+texturematrix
+	name treads
+	shift 1 0
+end
+
+material
+	name red
+	texture red_icon
+end
+
+material
+	name green1
+	texture green_icon
+end
+
+material
+	name bluebase
+	texture blue_basetop
+end
+
+material
+	name purplebase
+	texture purple_basetop
+end
+
+material
+	name invis
+	diffuse 0 0 0 0	
+end
+
+material
+	name NDG
+	texture treads
+	texmat treads
+end
+
+material
+	name grass
+	texture std_ground
+end
+
+physics
+	name ground
+	death Okay, this is not what it seems
+end
+
+physics
+	name ele
+	linear 0 0 50
+end
+
+physics
+	name GOTL
+	linear 200 200 0
+end
+
+physics
+	name GOTR
+	linear 200 -200 0
+end
+
+physics
+	name ROTR
+	linear -200 200 0
+end
+
+physics
+	name ROTL
+	linear -200 -200 0
+end
+
+physics
+	name minusX
+	linear -200 0 0
+end
+
+physics
+	name X
+	linear 200 0 0
+end
+
+physics
+	name Y
+	linear 0 -200 0
+end
+
+physics
+	name minusY
+	linear 0 200 0
+end
+
+physics
+	name bluebase
+	death The Blues are Hostile!
+end
+
+physics 
+	name purplebase
+	death The Purples are Hostile!
+end
+
+physics
+	name NDG
+	death This is Disputed Territory!
+end
+
+box
+	name Under Red Base
+	position 763 0 0
+	size 13 25 101
+end
+
+base
+	name Red Base
+	position 765 0 101
+	size 10 10 0.05
+	color 1
+end
+
+box
+	name Above Red Base
+	position 775 0 99
+	size 25 25 50
+	drivethrough
+	shootthrough
+end
+
+box
+	name Under Green Base
+	position -763 0 0
+	size 13 25 101
+end
+
+base
+	name Green Base
+	position -765 0 101
+	size 10 10 0.05
+	color 2
+end
+
+box
+	name Above Green Base
+	position -775 0 99
+	size 25 25 50
+	drivethrough
+	shootthrough
+end
+
+box
+	name Red Off To Left
+	position 390 -380 100
+	size 522 10 1
+	rotation 45
+	phydrv ROTL
+end
+
+box
+	name Red Off To Right
+	position 380 390 100
+	size 10 525 1
+	rotation 45
+	phydrv ROTR
+end
+
+box
+	name Y To Middle
+	position 0 400 100
+	size 10 375 1
+	phydrv Y
+end
+
+box
+	name Y
+	position 0 770 0
+	size 30 30 101
+end
+
+box
+	name minusY To Middle
+	position 0 -400 100
+	size 10 375 1
+	phydrv minusY
+end
+
+box
+	name minusY
+	position 0 -770 0
+	size 30 30 101
+end
+
+box
+	name Middle
+	position 0 0 80
+	size 30 30 21
+	drivethrough
+end
+
+box
+	name To Red Base
+	position 400 0 100
+	size 375 10 1
+	phydrv X
+end
+
+box
+	name To Green Base
+	position -400 0 100
+	size 375 10 1
+	phydrv minusX
+end
+
+box
+	name Green Off To Left
+	position -390 380 100
+	size 520 10 1
+	rotation 45
+	phydrv GOTL
+end
+
+box
+	name Green Off To Right
+	position -390 -380 100
+	size 10 522 1
+	rotation 45
+	phydrv GOTR
+end
+
+box
+	name Purple Death
+	position 415 0 84.01
+	size 360 800 1
+	phydrv purplebase
+	matref purplebase
+end
+
+box
+	name Blue Death
+	position -415 0 84.01
+	size 360 800 1
+	phydrv bluebase
+	matref bluebase
+end
+
+base
+	name Blue (Unused) Base
+	position -415 0 80
+	size 360 800 5
+	color 3
+end
+
+base
+	name Purple (Unused) Base
+	position 415 0 80
+	size 360 800 5
+	color 4
+end
+
+box
+	name Green UTB
+	position -787 0 0
+	size 13 25 0.01
+	phydrv ele
+end
+
+box
+	name Red UTB
+	position 787 0 0
+	size 13 25 0.01
+	phydrv ele
+end
+
+box
+	name New Box
+	position -400 0 0
+	size 500 5 80
+	rotation 300
+	matref invis
+end
+
+box
+	name YGBDTGU
+	position -788 -24 0
+	size 12 1 101
+end
+
+box
+	name MYGBDTGU
+	position -788 24 0
+	size 12 1 101
+	drivethrough
+end
+
+box
+	name YRBDTGU
+	position 788 -24 0
+	size 12 1 101
+end
+
+box
+	name MYRBDTGU
+	position 788 24 0
+	size 12 1 101
+	drivethrough
+end
+
+zone
+	name GreenSpawnZone
+	position -765 0 101
+	size 10 10 4
+	team 2
+	zoneflag ST 10
+	zoneflag CL 30
+	zoneflag SW 4
+	zoneflag SB 8
+	safety 2
+end
+
+zone
+	name RedSpawnZone
+	position 765 0 101
+	size 10 10 4
+	team 1
+	zoneflag ST 10
+	zoneflag CL 30
+	zoneflag SW 4
+	zoneflag SB 8
+	safety 1
+end
+
+mesh # get up to Green Base
+vertex -775 24 101
+vertex -775 -24 101
+vertex -799 24 101
+vertex -799 -24 101
+face
+	vertices 0 1 2 3
+endface
+face
+	vertices 3 2 1 0
+	drivethrough
+endface
+end
+
+mesh # get up to Red Base
+vertex 775 24 101
+vertex 775 -24 101
+vertex 799 24 101
+vertex 799 -24 101
+face
+	vertices 0 1 2 3
+endface
+face
+	vertices 3 2 1 0
+	drivethrough
+endface
+end
+
+
+box
+	name Neutral Disputed Ground 1
+	position -50 0 80
+	size 20 740 3	
+	phydrv NDG
+	matref NDG
+end
+
+box
+	name Neutral Disputed Ground 2
+	position 50 0 80
+	size 20 740 3	
+	phydrv NDG
+	matref NDG
+end
+
+box
+	name Neutral Disputed Ground 3
+	position 0 400 80
+	size 50 375 3
+	phydrv NDG
+	matref NDG
+end
+
+box
+	name Neutral Disputed Ground 4
+	position 0 -400 80
+	size 50 375 3	phydrv NDG
+	matref NDG
+end
+
+box
+	name greenindicator
+	position -750.95 0 5
+	size 1 20 20	matref green1
+end
+
+box
+	name redindicator
+	position 750.95 0 0
+	size 1 4 8
+	matref red
+end
+
+box
+	name X
+	position 0 0 80
+	size 10 30 21
+end
+
+box
+	name Y
+	position 0 0 80
+	size 30 10 21
+end
+
+box
+	name To Stop Something
+	position 0 -25 80
+	size 30 0.25 21
+end
+
+box
+	name To Stop Something
+	position 30 0 80
+	size 0.25 30 21
+end
+
+box
+	name To Stop Something
+	position 0 25 80
+	size 30 0.25 21
+end
+
+box
+	name To Stop Something
+	position -30 0 80
+	size 0.25 30 21
+end
+
+box
+	name "Ground"
+	position 0 0 74
+	size 700 700 1
+	matref grass
+end
+
+box
+	name New Box
+	position 0 375 75
+	size 20 375 1
+	phydrv Y
+end
+
+box
+	name New Box
+	position 375 0 75
+	size 375 20 1
+	phydrv X
+end
+
+box
+	name New Box
+	position 0 -375 75
+	size 20 375 1
+	phydrv minusY
+end
+
+box
+	name New Box
+	position -375 0 75
+	size 375 20 1
+	phydrv minusX
+end
+	
+zone
+	name forsomething
+	position 0 0 0
+	size 10 10 70
+	safety 1
+	safety 2
+	zoneflag G 10
+	zoneflag SW 30
+	zoneflag L 30
+	zoneflag GM 30
+end
+
+define abox
+
+box
+  position -0 -120 0
+  size 30 30 9.42
+  rotation 27.3938
+  matref invis
+end
+box
+  position 240 240 0
+  size 30 30 9.42
+  rotation 44.3567
+  matref invis
+end
+box
+  position 120 -0 0
+  size 30 30 9.42
+  rotation -22.6443
+  matref invis
+end
+box
+  position -120 120 0
+  size 30 30 9.42
+  rotation -23.6405
+  matref invis
+end
+box
+  position -120 -240 0
+  size 30 30 9.42
+  rotation 11.6438
+  matref invis
+end
+box
+  position 120 240 0
+  size 30 30 9.42
+  rotation 37.2259
+  matref invis
+end
+box
+  position 240 -120 0
+  size 30 30 9.42
+  rotation -24.5246
+  matref invis
+end
+box
+  position -240 120 0
+  size 30 30 9.42
+  rotation 15.5873
+  matref invis
+end
+box
+  position -240 -120 0
+  size 30 30 9.42
+  rotation -14.1711
+  matref invis
+end
+box
+  position 240 120 0
+  size 30 30 9.42
+  rotation -33.2352
+  matref invis
+end
+box
+  position 120 -240 0
+  size 30 30 9.42
+  rotation -43.2994
+  matref invis
+end
+box
+  position -120 240 0
+  size 30 30 9.42
+  rotation 6.21393
+  matref invis
+end
+box
+  position -120 -120 0
+  size 30 30 9.42
+  rotation 37.4887
+  matref invis
+end
+box
+  position -240 0 0
+  size 30 30 9.42
+  rotation 24.1808
+  matref invis
+end
+box
+  position 120 -120 0
+  size 30 30 9.42
+  rotation -40.5916
+  matref invis
+end
+box
+  position -240 240 0
+  size 30 30 9.42
+  rotation 7.19769
+  matref invis
+end
+box
+  position 120 120 0
+  size 30 30 9.42
+  rotation -17.5987
+  matref invis
+end
+box
+  position 240 -0 0
+  size 30 30 9.42
+  rotation -33.8089
+  matref invis
+end
+box
+  position -0 -240 0
+  size 30 30 9.42
+  rotation 34.2015
+  matref invis
+end
+box
+  position 0 240 0
+  size 30 30 9.42
+  rotation -5.55838
+  matref invis
+end
+box
+  position -120 0 0
+  size 30 30 9.42
+  rotation 0.368142
+  matref invis
+end
+box
+  position 240 -240 0
+  size 30 30 9.42
+  rotation 33.3829
+  matref invis
+end
+box
+  position -240 -240 0
+  size 30 30 9.42
+  rotation -40.866
+  matref invis
+end
+box
+  position 0 120 0
+  size 30 30 9.42
+  rotation -31.5875
+  matref invis
+end
+
+enddef
+
+define boxes
+
+group abox
+position 0 0 0
+scale 2 2 2
+end
+
+group abox
+position 0 0 9.42
+scale 2 2 2
+end
+
+enddef
+
+group abox
+position 0 0 0
+scale 2 2 2
+rotation 45
+end
+
+group boxes
+position 0 0 0
+end
